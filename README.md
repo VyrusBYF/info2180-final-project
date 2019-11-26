@@ -8,3 +8,5 @@ Richard Howlett - 620097204
 Rashane Murray - 620123217
 
 Cargill Seiveright - 620117676
+
+Kayvia Harriott - 6201118463
