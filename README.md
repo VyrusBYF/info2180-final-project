@@ -3,10 +3,10 @@ Final Project for the Course INFO2180
 
 Group Members:
 
-Richard Howlett - 620097204
+Richard Howlett
 
-Rashane Murray - 620123217
+Rashane Murray
 
-Cargill Seiveright - 620117676
+Cargill Seiveright
 
-Kayvia Harriott - 6201118463
+Kayvia Harriott
