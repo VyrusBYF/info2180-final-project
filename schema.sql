@@ -10,7 +10,7 @@ CREATE TABLE Users(
 	password varchar (35),
 	email varchar(50),
 	date_joined date,
-	PRIMARY KEY (id),
+	PRIMARY KEY (id)
 );
 
 CREATE TABLE Issues(

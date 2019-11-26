@@ -1,0 +1,33 @@
+.banner{
+	border: solid black 2px;
+	width: 80%;
+	padding-left: 22px;
+	padding: 10px;
+	font-weight: light;
+	background-color: black;
+	color: white;
+}
+
+ul {
+  list-style-type: none;
+  padding: 10px;
+  overflow: hidden;
+  background-color: black;
+  font-size: 12px;
+  color: white;
+  position: fixed;
+  width: 90%;
+  margin-left: 10px;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
