@@ -1,27 +1,31 @@
-.banner{
-	width: 80%;
-	background-color: black;
-	color: white;
-	margin-left: 25px;
-}
-
 .grid{
 	display: grid;
-  	width:100%;
   	height: 700px;
-  	grid-template: 100% 100% / 17% 60%;
-  	margin-top: -24px;
-  	/*See the grid*/ 
-  	/*border: solid black 2px;*/
+  	grid-template: 10% 92% / 16% 60%;
   	
 }
 
+
+
+/*------------------------------------------ Banner --------------------------------------------------*/
+
+.banner{
+	color: white;
+	margin-left: 25px;
+	background-color: black;
+	grid-column: span 2;
+	vertical-align: middle;
+	padding: 3px;
+	/*See the box*/ 
+  	/*border: solid black 1px;*/
+}
 
 #banner i{
 	margin-right: 12px;
 }
 
 #banner li{
+	margin-left: 12px;
 	font-size: 20px;
 }
 
@@ -29,29 +33,43 @@
   list-style-type: none;
   padding: 10px;
   overflow: hidden;
-  background-color: black;
   font-size: 12px;
   color: white;
   width: 100%;
 }
-#container ul {
+
+/*----------------------------------------------------------------------------------------------------*/
+
+
+/*------------------------------------------- Box 1 --------------------------------------------------*/
+
+#box1{
+	background-color: #eae9e9;
+	grid-row-start: 2;
+	margin-left: 25px;
+
+	/*See the box*/ 
+  	/*border: solid black 1px;*/
+}
+
+
+#box1 ul {
   list-style-type: none;
-  background-color: #dcdde1;
   font-size: 12px;
   color: white;
   margin-left: 25px;
 }
 #icons {
-	padding-top: 15px;
+	padding-top: 8px;
 }
 
-#container li{
+#box1 li{
 	color: black;
 	text-align: left;
 	margin-left: -30px;
 }
 
-#container li a {
+#box1 li a {
   display: inline-block;
   color: black;
   text-align: left;
@@ -63,6 +81,67 @@
   margin-left: 8px;
   padding: 2px;
 }
+
+#box1 li a:hover:not(.active) {
+  background-color: #8c7ae6;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+
+/*------------------------------------------- Box 2 --------------------------------------------------*/
+
+#box2 {
+	grid-row-start: 2;
+	grid-column-start: 2;
+	 
+
+	/*See the box*/ 
+  	/*border: solid black 1px;*/
+}
+
+#box2 h1{
+	font-family: "Calibri";
+	font-size: 48px;
+	margin-left: 25px;
+}
+
+#box2 ul{
+	list-style-type: none;
+	margin-left: -22px;
+}
+
+#box2 li{
+	font-family: "Calibri";
+	font-size: 20px;
+	font-weight: bold;
+	padding: 12px;
+
+}
+
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.button{
+	font-size: 20px;
+	margin-left: 22px;
+	border-radius: 8px;
+	border: none;
+	width: 20%;
+	padding: 6px;
+	background-color: #575fcf;
+	color: white;
+	font-family: "Calibri";
+}
+
+.input{
+	border: solid black 1px;
+	background-color: #f6f6f6;
+	border-radius: 5px;
+	width: 60%;
+	padding: 10px;
+}
+
 /*li a {
   display: block;
   color: white;
@@ -70,9 +149,6 @@
   padding: 14px 16px;
   text-decoration: none;
 } */
-#container li a:hover:not(.active) {
-  background-color: #8c7ae6;
-
 
 /*
 li a:hover:not(.active) {
