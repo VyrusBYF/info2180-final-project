@@ -69,7 +69,7 @@
 	margin-left: -30px;
 }
 
-#box1 li a {
+/*#box1 li a {
   display: inline-block;
   color: black;
   text-align: left;
@@ -80,10 +80,29 @@
   width: 40%;
   margin-left: 8px;
   padding: 2px;
+
+}*/
+
+#box1 li button{
+	border: none;
+	display: inline-block;
+	color: black;
+	text-align: left;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "Calibri";
+	width: 40%;
+	margin-left: 8px;
+	padding: 2px;
+	background-color: #eae9e9;
 }
 
-#box1 li a:hover:not(.active) {
+
+#box1 li button:hover:not(.active) {
   background-color: #8c7ae6;
+  color:white;
+  border-radius: 6px;
 }
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -140,6 +159,15 @@
 	border-radius: 5px;
 	width: 60%;
 	padding: 10px;
+}
+
+#submitBtn:hover:not(.active){
+	background-color: black;
+	color:white;
+	border-radius: 8px;
+}
+textarea:focus, button:focus, input:focus{
+    outline: none;
 }
 
 /*li a {
