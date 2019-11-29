@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html>
+<?php include('test.php') ?>
+
+
 	<head>
 		<title>BugMe Issue Tracker</title>
 		<link rel="stylesheet" type="text/css" href="styles.css">
@@ -23,14 +24,13 @@
 				</ul>
 		</div>
 		<div id="box2"> 
-			<h1>New User</h1>
+			<h1>I Was Replaced</h1>
 			<ul>
-				<li>Firstname<br><input class = "input" type="text" id="Firstname" name="Firstname"></li>
-				<li>Lastname<br><input class = "input" type="text" id="Lastname"></li>
-				<li>Password<br><input class = "input" type="Password" id="Password"></li>
-				<li>Email<br><input class = "input" type="Email" id="Email"></li>
+				<li>Replaced<br><input class = "input" type="text" id="Firstname" name="Firstname"></li>
+				<li>Replaced<br><input class = "input" type="text" id="Lastname"></li>
+				<li>Replaced<br><input class = "input" type="Password" id="Password"></li>
+				<li>Replaced<br><input class = "input" type="Email" id="Email"></li>
 			</ul>
 			<button type= "button" id="submitBtn" class="button">Submit</button>
 		</div>
 	</div>
-</html>

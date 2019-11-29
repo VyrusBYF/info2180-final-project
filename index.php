@@ -1,3 +1,35 @@
+<?php
+require "bugme.php";
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>BugMe Issue Tracker</title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
+		<script src="bugme.js"></script>
+		<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	</head>
+	<div id="container">
+		<div>
+			<div id="box2"> 
+				<h1>Login</h1>
+				<ul>
+					<li>Email<br><input class = "input" type="Email" id="Email" value ="admin@bugme.com"></li>
+					<li>Password<br><input class = "input" type="Password" id="Password" value="password123"></li>
+				</ul>
+				<button type= "button" id="submitBtn" class="button" onclick= "Login()">Submit</button>
+			</div>
+		</div>
+	</div>
+</html>
+
+<!--
 <!DOCTYPE html>
 <html>
 	<head>
@@ -33,4 +65,4 @@
 			<button type= "button" id="submitBtn" class="button">Submit</button>
 		</div>
 	</div>
-</html>
+</html> -->
