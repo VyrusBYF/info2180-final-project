@@ -1,0 +1,38 @@
+.gridcontainer {
+    display: grid;
+    grid-template-areas:    'header header header header header header'
+                            'space  space  space  space  space  space '
+                            'body   body    body    body    body    body   '
+                            'body   body    body    body    body    body '
+                            'body   body    body    body    body    body   '
+                            'body   body    body    body    body    body'
+}
+
+.header {
+    grid-area: header;    
+    text-align: center;  
+    padding: 5px;
+    padding-right: 20px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%; 
+    text-align: left;
+    background: black;
+    margin-top: -20px;
+    margin-left: -10px;
+    
+}
+
+body{
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.submitButton{
+    height: 30px;
+    width: 7%;
+    background-color: rgb(91, 91, 187);
+    border-radius: 6%;
+    color: white;
+    font-size: 100%;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Bug Issues | Add New User</title>
+                <link rel = "stylesheet" type = "text/css" href = "style.css" />
+                <script src="https://kit.fontawesome.com/6a29a7f183.js" crossorigin="anonymous"></script>    
+                <!--Update from GitHub, script src-->
+                <script src = "bugme.js"></script>
+		        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        </head>
+        
+        <body>
+            <div class = "gridContainer">
+                <!--Header-->
+                <div class = "header">
+                        <h1><i class="fas fa-bug"> </i>  BugMe Issue Tracker</h1>
+                </div>
+                <!--Menu/Sidebar-->
+                <div class = "menu">
+                    <br>
+                    <div>
+                        <a href="dashboard_homescreen.html"><i class="fas fa-home"></i> Home</a>
+                    </div>
+                    <br>
+                    <div>
+                            <a href="newUser.html"><i class="fas fa-user"></i> Add User</a>
+                    </div>
+                    <br>
+                    <div>
+                            <a href="newIssue.html"><i class="fas fa-plus-circle"></i> New Issue</a>
+                    </div>
+                    <br>
+                    <div>
+                            <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>                    
+                </div>
+                <!--Issues Filter and Table-->
+                <div class = "body">
+                    <h1>New User</h1>
+                    
+
+                    <form action="dashboard_homescreen.html"> <!--/action_page.php-->
+                        <br>
+                        Firstname<br><input class="inputField" type="text"  name="firstname" value=""><br><br>
+                        Lastname<br><input class="inputField" type="text"  name="lastname" value=""><br><br>
+                        Password<br><input class="inputField" type="text"  name="password" value=""><br><br>
+                        Email<br><input class="inputField" type="text"  name="email" value=""><br><br>
+                        <br>
+                        <input type="submit" class = "submitButton" value="Submit">
+                    </form>
+
+                                        
+                </div>
+            </div>
+        </body>
+    
+</html>
