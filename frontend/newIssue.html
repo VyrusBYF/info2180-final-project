@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Bug Issues | Create Issue</title>
+                <link rel = "stylesheet" type = "text/css" href = "style.css" />
+                <script src="https://kit.fontawesome.com/6a29a7f183.js" crossorigin="anonymous"></script>    
+        </head>
+        
+        <body>
+            <div class = "gridContainer">
+                <!--Header-->
+                <div class = "header">
+                        <h1><i class="fas fa-bug"> </i>  BugMe Issue Tracker</h1>
+                </div>
+                <!--Menu/Sidebar-->
+                <div class = "menu">
+                    <br>
+                    <div>
+                        <a href="dashboard_homescreen.html"><i class="fas fa-home"></i> Home</a>
+                    </div>
+                    <br>
+                    <div>
+                            <a href="newUser.html"><i class="fas fa-user"></i> Add User</a>
+                    </div>
+                    <br>
+                    <div>
+                            <a href="newIssue.html"><i class="fas fa-plus-circle"></i> New Issue</a>
+                    </div>
+                    <br>
+                    <div>
+                            <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>                    
+                </div>
+                <!--Issues Filter and Table-->
+                <div class = "body">
+                    <h1>Create Issue</h1>
+                    
+
+                    <form action="dashboard_homescreen.html"> <!--/action_page.php-->
+                        <br>
+                        Title<br><input class="inputField" type="text"  name="firstname" value=""><br><br>
+                        Description<br><input class="inputFieldDescription" type="text"  name="lastname" value="" ><br><br>
+                        Assigned To<br>
+                        <form action="/action_page.php">
+                            <select class="dropDownMenu" name="assignedTo">
+                              <option value="option">Marcia Brady</option>
+                              <option value="option">May Harris</option>
+                            </select>
+                            <br><br>
+                        </form>
+                        Type<br><form action="/action_page.php">
+                            <select class="dropDownMenu" name="assignedTo">
+                              <option value="option">Bug</option>
+                              <option value="option">Proposal</option>
+                            </select>
+                            <br><br>
+                        </form>
+                        Priority<br><form action="/action_page.php">
+                            <select class="dropDownMenu" name="assignedTo">
+                              <option value="option">Major</option>
+                              <option value="option">Minor</option>
+                            </select>
+                            <br><br>
+                        </form>
+                        <br>
+                        <input type="submit" class = "submitButton" value="Submit">
+                    </form>
+
+                                        
+                </div>
+            </div>
+        </body>
+    
+</html>

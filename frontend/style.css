@@ -1,0 +1,124 @@
+.body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.gridcontainer {
+    display: grid;
+    grid-template-areas:    'header header header header header header'
+                            'space  space  space  space  space  space '
+                            'menu   body    body    body    body    body   '
+                            'menu   body    body    body    body    body '
+                            'menu   body    body    body    body    body   '
+                            'menu   body    body    body    body    body'
+}
+
+.header {
+    grid-area: header;    
+    text-align: center;  
+    padding: 5px;
+    padding-right: 20px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%; 
+    text-align: left;
+    background: black;
+    margin-top: -20px;
+    margin-left: -10px;
+    
+}
+
+a, a:active, a:visited {
+    text-decoration:none;
+    color: black;
+}
+
+
+
+.menu {
+    grid-area: menu;
+    background: rgb(214, 214, 214);
+    margin-left: -10px;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    height: 100%;
+
+    
+    width: 160px;
+    position: fixed;
+      
+    background-color: rgb(233, 233, 233);
+    overflow-x: hidden;    
+    font-size: small;
+}
+
+.body {
+    grid-area: body;        
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    grid-area: body;
+    text-align: left;
+    color: rgb(0, 0, 0);
+    margin-left: 200px;    
+    
+}
+
+.newIssueButton, button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.newIssueButton {
+    background: rgb(43, 170, 43);
+    color: white;
+    height: 30px;
+    width: auto;  
+    border-radius: 6%;  
+    font-size: 100%;   
+    font-weight: bold;
+}
+
+
+.button {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+th {
+    background-color: rgb(223, 223, 223);
+}
+
+table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-spacing: 0;
+}
+
+table:nth-child(3){
+    text-align: center;
+}
+
+.submitButton{
+    height: 30px;
+    width: 9%;
+    background-color: rgb(91, 91, 187);
+    border-radius: 6%;
+    color: white;
+    font-size: 100%;
+}
+
+.inputFieldDescription {
+    height:100px;
+}
+
+.inputFieldDescription, .inputField{
+    width: 500px;
+}
+
+.form{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.dropDownMenu{
+    width: 510px;
+}

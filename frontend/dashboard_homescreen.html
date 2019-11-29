@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Bug Issues | Home</title>
+                <link rel = "stylesheet" type = "text/css" href = "style.css" />
+                <script src="https://kit.fontawesome.com/6a29a7f183.js" crossorigin="anonymous"></script>    
+        </head>
+        
+        <body>
+            <div class = "gridContainer">
+                <!--Header-->
+                <div class = "header">
+                        <h1><i class="fas fa-bug"> </i>  BugMe Issue Tracker</h1>
+                </div>
+                <!--Menu/Sidebar-->
+                <div class = "menu">
+                    <br>
+                    <div>
+                        <a href="dashboard_homescreen.html"><i class="fas fa-home"></i> Home</a>
+                    </div>
+                    <br>
+                    <div>
+                            <a href="newUser.html"><i class="fas fa-user"></i> Add User</a>
+                    </div>
+                    <br>
+                    <div>
+                            <a href="newIssue.html"><i class="fas fa-plus-circle"></i> New Issue</a>
+                    </div>
+                    <br>
+                    <div>
+                            <a href="index.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>                    
+                </div>
+                <!--Issues Filter and Table-->
+                <div class = "body">
+                    <h1>Issues</h1>
+                    <input class = "newIssueButton" type="submit"  value="Create New Issue">
+
+                    <h3>Filter by: 
+                    <input class = "button" type="submit"  value="ALL">
+                    <input class = "button" type="submit"  value="OPEN">
+                    <input class = "button" type="submit"  value="MY TICKETS">
+                    </h3>
+
+                    <table>
+                        <tr>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Assigned To</th>
+                            <th>Created</th>
+                        </tr>
+                        <tr>
+                            <td>#16 Setup Logger</td>
+                            <td>Proposal</td>
+                            <td>CLOSED</td>
+                            <td>Marsha Brady</td>
+                            <td>2019-08-10</td>
+                        </tr>
+
+                    </table>
+                    
+                </div>
+            </div>
+        </body>
+    
+</html>
