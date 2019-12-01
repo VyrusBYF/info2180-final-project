@@ -22,12 +22,6 @@ if(!empty($_REQUEST["request"])){
 	if ($request == 'login') {
 		Login();
 	}
-	elseif ($request == 'home') {
-		if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
-			$fil=$_REQUEST['filter'];
-			alltickets($fil);
-		}
-	}
 	elseif ($request == 'logout') {
 		logout();
 	}
@@ -117,7 +111,35 @@ function homePage(){
 
 }
 
-function()
+function newIssue(){ ?>
+	<div id="grid" class = "grid">
+		<div class = "banner" id= "banner">
+			<ul>
+				<li><i class="icon ion-md-bug" style="color:white; font-size: 24px;"></i> BugMe Issue Tracker</li>
+			</ul>
+		</div>
+		<div id= "box1">
+				<ul id = "icons">
+					<li><i class="fas fa-home"></i><a href="#home" data-target="home">Home</a></li>
+					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user">Add User</a></li>
+					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue">New Issue</a></li>
+					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout">Logout</a></li>
+				</ul>
+		</div>
+		<div id="box2"> 
+			<h1>Create Issue</h1>
+			<ul>
+				<li>Title<br><input class = "input" type="text" id="Firstname" name="title"></li>
+				<li>Description<br><textarea class = "input" type="text" id="desc"></textarea></li>
+				<li>Assigned To<br><select class = "dropDownMenu" type="text" id="assign"></select></li>
+				<li>Type<br><select class = "dropDownMenu" id="typ"></select></li>
+				<li>Priority<br><select class = "dropDownMenu" id="priority"></select></li>
+			</ul>
+			<button type= "button" id="submitBtn" class="button">Submit</button> 
+		</div>
+	</div> <?php
+
+} 
 
 
 function Login () {
@@ -153,7 +175,8 @@ function Login () {
 			</div>
 		</div> <?php
 	}else{
-		homePage();
+		//Edit this line to jump to a function for testing
+		newIssue();
 	}
 
 } ?>

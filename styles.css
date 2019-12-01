@@ -1,7 +1,7 @@
 .grid{
 	display: grid;
 	width: 2100px;
-  	height: 700px;
+  	height: 1000px;
   	grid-template: 10% 92% / 16% 60%;
   	
 }
@@ -140,6 +140,7 @@
 }
 
 
+
 /*----------------------------------------------------------------------------------------------------*/
 
 .button{
@@ -167,7 +168,7 @@
 	color:white;
 	border-radius: 8px;
 }
-textarea:focus, button:focus, input:focus{
+textarea:focus,select:focus,option:focus, button:focus, input:focus{
     outline: none;
 }
 /*------------------------------------------- Table --------------------------------------------------*/
@@ -205,7 +206,21 @@ textarea:focus, button:focus, input:focus{
 
 /*----------------------------------------------------------------------------------------------------*/
 
+/*------------------------------------------- Issue --------------------------------------------------*/
 
+.dropDownMenu{
+	border: solid black 1px;
+	background-color: #f6f6f6;
+	border-radius: 5px;
+	width: 60%;
+	padding: 10px;
+}
+
+#desc {
+	height: 100px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
 
 
 

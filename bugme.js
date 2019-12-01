@@ -59,10 +59,7 @@ function newIssue(){
 	var xhttp = new XMLHttpRequest();
 	var url = "bugme.php";
 
-	var email = document.getElementById("Email").value;
-	var password = document.getElementById("Password").value;
-
-	console.log(email,password);
+	console.log();
 
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState === xhttp.DONE) {
@@ -74,7 +71,7 @@ function newIssue(){
 				}
 		} 
 		}
-		xhttp.open("GET", url+"?request="+request+"&email="+email+"&password="+password,true);
+		xhttp.open("GET", url+"?request="+request,true);
 		xhttp.send();
 }
 
