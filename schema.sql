@@ -22,10 +22,12 @@ CREATE TABLE Issues(
 	status varchar(10),
 	assigned_to varchar(30),
 	created_by varchar(30),
+	created date,
 	updated date,
 	PRIMARY KEY (id)
 );
 
 INSERT INTO Users VALUES ("00000","Richard","Howlett","password123","admin@bugme.com","2019-11-26");
+INSERT INTO Issues VALUES ("#001","Final Project","Final project for the course INFO2180","Task","Critical","CLOSED","Richard Howlett","Richard Howlett","2019-11-26","2019-11-28");
 
 

@@ -24,28 +24,6 @@ function Login(){
 		xhttp.send();
 }
 
-
-function home(){
-
-	var request = "home"
-	
-	var xhttp = new XMLHttpRequest();
-	var url = "bugme.php";
-	xhttp.onreadystatechange = function() {
-		if (xhttp.readyState === xhttp.DONE) {
-				if (xhttp.status === 200) {
-					var response = xhttp.responseText;
-					document.getElementById("box2").innerHTML=response;
-				} else {
-					alert('There was a problem with the request.');
-				}
-		} 
-		}
-		xhttp.open("GET", url+"?request="+request,true);
-		xhttp.send();
-}	
-
-
 function addUser() {
 
 	var fname = document.getElementById("Firstname").value;
@@ -71,6 +49,33 @@ function addUser() {
 	console.log(user);
 	httpRequest.open('POST', url);
 	httpRequest.send(user);		
+}
+
+function newIssue(){
+	//alert("I work");
+
+	var request = "newIssue"
+	
+	var xhttp = new XMLHttpRequest();
+	var url = "bugme.php";
+
+	var email = document.getElementById("Email").value;
+	var password = document.getElementById("Password").value;
+
+	console.log(email,password);
+
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState === xhttp.DONE) {
+				if (xhttp.status === 200) {
+					var response = xhttp.responseText;
+					document.getElementById("container").innerHTML=response;
+				} else {
+					alert('There was a problem with the request.');
+				}
+		} 
+		}
+		xhttp.open("GET", url+"?request="+request+"&email="+email+"&password="+password,true);
+		xhttp.send();
 }
 
 

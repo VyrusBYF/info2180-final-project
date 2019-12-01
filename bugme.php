@@ -20,7 +20,7 @@ if(!empty($_REQUEST["request"])){
 		}
 	$request = $_REQUEST["request"];
 	if ($request == 'login') {
-		login();
+		Login();
 	}
 	elseif ($request == 'home') {
 		if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
@@ -31,8 +31,8 @@ if(!empty($_REQUEST["request"])){
 	elseif ($request == 'logout') {
 		logout();
 	}
-	elseif ($request == 'sIssueform') {
-		submitIssueform();
+	elseif ($request == 'newIssue') {
+		newIssue();
 	}
 	elseif ($request == 'submitIssue') {
 		submitIssue();
@@ -62,8 +62,65 @@ if(!empty($_REQUEST["request"])){
 	}
 }
 
+function homePage(){
+	$host = getenv('IP');
+	$username = 'root';
+	$password = 'naruto';
+	$dbname = 'bugme';
 
-function login () {
+	$conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+
+	$stmt = $conn->prepare("SELECT * FROM Issues");
+	$stmt->execute();
+	$results = $stmt->fetchAll(PDO::FETCH_ASSOC); ?>
+
+	<div id="grid" class = "grid">
+		<div class = "banner" id= "banner">
+			<ul>
+				<li><i class="icon ion-md-bug" style="color:white; font-size: 24px;"></i> BugMe Issue Tracker</li>
+			</ul>
+		</div>
+		<div id= "box1">
+				<ul id = "icons">
+					<li><i class="fas fa-home"></i><a href="#home" data-target="home">Home</a></li>
+					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user">Add User</a></li>
+					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue">New Issue</a></li>
+					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout">Logout</a></li>
+				</ul>
+		</div>
+		<div id="box2"> 
+			<h1>Issues</h1> <button type="button" style="background-color: green; " class="button" onclick="newIssue()">Create New Issue</button>
+			<table class="table">
+				<thead class="head">
+					<tr>
+						<th>Title</th>
+						<th>Type</th>
+						<th>Status</th>
+						<th>Assigned To</th>
+						<th>Created</th>
+					</tr>
+				</thead>
+				<?php foreach ($results as $row): ?>
+					<tr class="row">
+						<td><?= $row['id'].$row['title']; ?></td>
+						<td><?= $row['type']; ?></td>
+						<td><?= $row['status']; ?></td>
+						<td><?= $row['assigned_to'];?></td>
+						<td><?= $row['created'];?></td>
+					</tr>
+				<?php endforeach; ?>
+			</table> 
+		</div>
+	</div>
+
+	<?php
+
+}
+
+function()
+
+
+function Login () {
 	$host = getenv('IP');
 	$username = 'root';
 	$password = 'naruto';
@@ -74,48 +131,31 @@ function login () {
 	$email = $_REQUEST['email'];
 	$pwd = $_REQUEST['password'];
 
-
-	if (empty($email) || empty($pwd)) {;
-		exit();
-	}
-	
-	$stmt = $conn->prepare("SELECT password FROM Users WHERE email = '$email'");
+	$stmt = $conn->prepare("SELECT password, email FROM Users WHERE email = '$email'");
 	$stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-	print_r ($results);
+	//print_r ($results);
 
-	if ($pwd == $results[0]['password']){ ?>
-		<div id="grid" class = "grid">
-			<div class = "banner" id= "banner">
+
+	if ($email != $results[0]['email'] || $pwd != $results[0]['password']) {;
+		?>
+
+		<div>
+			<div id="box2">
+				<h1>Login</h1>
+				<p style="color:red;margin-left: 28px;">Username or Password is incorrect</p>
 				<ul>
-					<li><i class="icon ion-md-bug" style="color:white; font-size: 24px;"></i> BugMe Issue Tracker</li>
+					<li>Email<br><input class = "input" type="Email" id="Email" value ="admin@bugme.com"></li>
+					<li>Password<br><input class = "input" type="Password" id="Password" value="password123"></li>
 				</ul>
-			</div>
-			<div id= "box1">
-					<ul id = "icons">
-						<li><i class="fas fa-home"></i><a href="#home" data-target="home">Home</a></li>
-						<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user">Add User</a></li>
-						<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue">New Issue</a></li>
-						<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout">Logout</a></li>
-					</ul>
-			</div>
-			<div id="box2"> 
-				<h1>New User</h1>
-				<ul>
-					<li>Firstname<br><input class = "input" type="text" id="Firstname" name="Firstname"></li>
-					<li>Lastname<br><input class = "input" type="text" id="Lastname"></li>
-					<li>Password<br><input class = "input" type="Password" id="Password"></li>
-					<li>Email<br><input class = "input" type="Email" id="Email"></li>
-				</ul>
-				<button type= "button" id="submitBtn" class="button">Submit</button>
+				<button type= "button" id="submitBtn" class="button" onclick= "Login()">Submit</button>
 			</div>
 		</div> <?php
+	}else{
+		homePage();
 	}
-		
-		
-	?>
 
-<?php }
+} ?>
 
-?>
+
