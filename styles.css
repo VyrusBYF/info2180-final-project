@@ -242,7 +242,7 @@ textarea:focus,select:focus,option:focus, button:focus, input:focus{
 }
 
 #issueDesc li{
-	width: 42%;
+	width: 60%;
 	list-style: 
 }
 
@@ -290,6 +290,21 @@ textarea:focus,select:focus,option:focus, button:focus, input:focus{
 }
 
 /*----------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------- Details --------------------------------------------------*/
+
+#grid4{
+	display: grid;
+	grid-template: 50% 50% / 30%;
+	padding:40px;
+	margin-left: 400px;
+}
+#grid4 button{
+	margin-top: 50px;
+}
+
+/*------------------------------------------------------------------------------------------------------*/
+
 
 
 

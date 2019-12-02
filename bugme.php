@@ -1,4 +1,4 @@
-<?php //error_reporting(E_ERROR | E_WARNING | E_PARSE); 
+<?php error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 $host = getenv('IP');
 $username = 'root';
 $password = 'naruto';
@@ -333,7 +333,7 @@ function newIssue(){
 		<div id="box2"> 
 			<h1>Create Issue</h1>
 			<ul>
-				<li>Title<br><input class = "input" type="text" id="title" ></li>
+				<li>Title<br><input class = "input" type="text" id="title" required></li>
 				<li>Description<br><textarea class = "input" type="text" id="desc"></textarea></li>
 				<li>Assigned To<br><select class = "dropDownMenu" type="text" id="assign">
 					<option value="" disabled selected hidden>Marcia Brady</option>
@@ -380,8 +380,8 @@ function newUser(){ ?>
 				<ul>
 					<li>Firstname<br><input class = "input" type="text" id="Firstname" name="Firstname"></li>
 					<li>Lastname<br><input class = "input" type="text" id="Lastname"></li>
-					<li>Password<br><input class = "input" type="Password" id="Password"></li>
-					<li>Email<br><input class = "input" type="Email" id="Email"></li>
+					<li>Password<br><input class = "input" type="Password" id="Password" required=""></li>
+					<li>Email<br><input class = "input" type="Email" id="Email" required=""></li>
 				</ul>
 				<button type= "button" id="submitBtn" class="button" onclick="createUser()">Submit</button>
 			</div>
@@ -428,8 +428,8 @@ function createUser(){
 				<ul>
 					<li>Firstname<br><input class = "input" type="text" id="Firstname" name="Firstname"></li>
 					<li>Lastname<br><input class = "input" type="text" id="Lastname"></li>
-					<li>Password<br><input class = "input" type="Password" id="Password"></li>
-					<li>Email<br><input class = "input" type="Email" id="Email"></li>
+					<li>Password<br><input class = "input" type="Password" id="Password" required></li>
+					<li>Email<br><input class = "input" type="Email" id="Email" required></li>
 				</ul>
 				<button type= "button" id="submitBtn" class="button" onclick="createUser()">Submit</button>
 			</div>
@@ -486,7 +486,7 @@ function submitIssue(){
 			<p style="color:blue;margin-left: 28px;">Your Issue Has Been Logged!</p>
 
 			<ul>
-				<li>Title<br><input class = "input" type="text" id="title" ></li>
+				<li>Title<br><input class = "input" type="text" id="title" required=""></li>
 				<li>Description<br><textarea class = "input" type="text" id="desc"></textarea></li>
 				<li>Assigned To<br><select class = "dropDownMenu" type="text" id="assign">
 					<option value="" disabled selected hidden>Marcia Brady</option>
@@ -545,9 +545,14 @@ function Details(){
 			<h1><?php echo $results[0]['title'] ?></h1>
 			<p style=";margin-top: -38px; font-weight: bold;"><?php echo('Issue #'. $results[0]['id']) ?></p><br>
 			<p style="width:42%;font-weight: bold;"><?php echo $results[0]['description'] ?></p>
+			<div id="grid4">
+				<button>Mark as Closed</button>
+				<button>Mark in Progress</button>				
+			</div>
 			<ul id="issueDesc">
-				<li style="font-size: 16px;"></li>
-				<li style="font-size: 16px;margin-top: 70px;"><?php echo (" Issue was created on " . date('F',strtotime($results[0]['created'])) . " " . date('j',strtotime($results[0]['created'])) . " " . date('g:i a',strtotime($results[0]['created']))  );?>
+				<li style="font-size: 16px;margin-top: 70px;font-weight: lighter;"><?php echo (" Issue was created on " . date('F',strtotime($results[0]['created'])) . " " . date('j',strtotime($results[0]['created'])) . ", " . date('g:i a',strtotime($results[0]['created'])) . " by " . $results[0]['created_by'] );?>
+				</li>
+				<li style="font-size: 16px;;font-weight: lighter;"><?php echo (" Last updated on " . date('F',strtotime($results[0]['created'])) . " " . date('j',strtotime($results[0]['created'])) . ", " . date('g:i a',strtotime($results[0]['created']))  );?>
 				</li>
 			</ul>
 			
@@ -585,8 +590,8 @@ function Login() {
 				<h1>Login</h1>
 				<p style="color:red;margin-left: 28px;">Username or Password is incorrect</p>
 				<ul>
-					<li>Email<br><input class = "input" type="Email" id="Email" value ="admin@bugme.com"></li>
-					<li>Password<br><input class = "input" type="Password" id="Password" value="password123"></li>
+					<li>Email<br><input class = "input" type="Email" id="Email" value ="admin@bugme.com" required></li>
+					<li>Password<br><input class = "input" type="Password" id="Password" value="password123" required></li>
 				</ul>
 				<button type= "button" id="submitBtn" class="button" onclick= "Login()">Submit</button>
 			</div>
@@ -609,8 +614,8 @@ function Logout(){
 		<div id="box2">
 			<h1>Login</h1>
 			<ul>
-				<li>Email<br><input class = "input" type="Email" id="Email" value ="admin@bugme.com"></li>
-				<li>Password<br><input class = "input" type="Password" id="Password" value="password123"></li>
+				<li>Email<br><input class = "input" type="Email" id="Email" value ="admin@bugme.com" required></li>
+				<li>Password<br><input class = "input" type="Password" id="Password" value="password123" required></li>
 			</ul>
 			<button type= "button" id="submitBtn" class="button" onclick= "Login()">Submit</button>
 		</div>
