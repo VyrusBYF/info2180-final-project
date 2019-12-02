@@ -188,6 +188,28 @@ function createUser(x){
 		xhttp.send();
 }
 
+function Filter(x,y){
+	//alert("I work");
+	console.log(x,y);
+	
+	var request = "filter";
+
+	var xhttp = new XMLHttpRequest();
+	var url = "bugme.php";
+
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState === xhttp.DONE) {
+				if (xhttp.status === 200) {
+					var response = xhttp.responseText;
+					document.getElementById("container").innerHTML=response;
+				} else {
+					alert('There was a problem with the request.');
+				}
+		} 
+		}
+		xhttp.open("GET", url+"?request="+request+"&filter="+x+"&user="+y,true);
+		xhttp.send();
+}
 
 
 /*window.onload = function (){

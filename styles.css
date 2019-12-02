@@ -1,6 +1,6 @@
 .grid{
 	display: grid;
-	width: 2100px;
+	width: 1600px;
   	height: 1000px;
   	grid-template: 10% 92% / 16% 60%;
   	
@@ -246,10 +246,51 @@ textarea:focus,select:focus,option:focus, button:focus, input:focus{
 	list-style: 
 }
 
+/*----------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------- Grid2 --------------------------------------------------*/
+
+#grid2 {
+	margin-left: 60px;
+	border-spacing: 0;
+	display: grid;
+	grid-template: 60% / 12% 10% 10% 15%;
+
+}
+
+#grid2 button{
+	margin-top: 12px;
+	margin-bottom: -12px;
+	font-size: 18px;
+	border-radius: 8px;
+	border: none;
+	color: black;
+	font-family: "Calibri";
+	background-color: white;
+}
 
 
+#grid3 {
+	display: grid;
+	grid-template: 40% / 10% 80%;
+}
+
+#grid3 button{
+	width: 28%;
+	margin-top: 40px;
+	margin-bottom: -40px;
+	margin-left: 600px;
+	display: inline-block;
+}
+
+#grid2 button:hover:not(.active) {
+  background-color: #8c7ae6;
+  color:white;
+  border-radius: 6px;
+}
 
 /*----------------------------------------------------------------------------------------------------*/
+
 
 
 
