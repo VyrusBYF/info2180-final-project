@@ -1,6 +1,6 @@
 function Login(){
 
-	var request = "login"
+	var request = "login";
 	
 	var xhttp = new XMLHttpRequest();
 	var url = "bugme.php";
@@ -51,10 +51,10 @@ function addUser() {
 	httpRequest.send(user);		
 }
 
-function newIssue(){
+function newIssue(x){
 	//alert("I work");
 
-	var request = "newIssue"
+	var request = "newIssue";
 	
 	var xhttp = new XMLHttpRequest();
 	var url = "bugme.php";
@@ -71,7 +71,7 @@ function newIssue(){
 				}
 		} 
 		}
-		xhttp.open("GET", url+"?request="+request,true);
+		xhttp.open("GET", url+"?request="+request+"&user="+x,true);
 		xhttp.send();
 }
 
@@ -97,6 +97,37 @@ function Details(x){
 		} 
 		}
 		xhttp.open("GET", url+"?request="+request+"&id="+x,true);
+		xhttp.send();
+}
+
+function submitIssue(x){
+	//alert("I work");
+
+	var request = "submitIssue";
+	
+	var title = document.getElementById("title").value;
+	var desc = document.getElementById("desc").value;
+	var ass = document.getElementById("assign").value;
+	var typ = document.getElementById("typ").value;
+	var priority = document.getElementById("priority").value;
+
+
+	var xhttp = new XMLHttpRequest();
+	var url = "bugme.php";
+
+	console.log();
+
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState === xhttp.DONE) {
+				if (xhttp.status === 200) {
+					var response = xhttp.responseText;
+					document.getElementById("container").innerHTML=response;
+				} else {
+					alert('There was a problem with the request.');
+				}
+		} 
+		}
+		xhttp.open("GET", url+"?request="+request+"&title="+title+"&desc="+desc+"&ass="+ass+"&type="+typ+"&priority="+priority+"&user="+x,true);
 		xhttp.send();
 }
 

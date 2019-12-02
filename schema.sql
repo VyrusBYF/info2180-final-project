@@ -9,7 +9,7 @@ CREATE TABLE Users(
 	lastname varchar (25),
 	password varchar (35),
 	email varchar(50),
-	date_joined date,
+	date_joined TIMESTAMP,
 	PRIMARY KEY (id)
 );
 
@@ -22,8 +22,10 @@ CREATE TABLE Issues(
 	status varchar(10),
 	assigned_to varchar(30),
 	created_by varchar(30),
-	created date,
-	updated date,
+	created DATETIME NOT NULL
+                DEFAULT CURRENT_TIMESTAMP,
+	updated DATETIME NOT NULL
+                DEFAULT CURRENT_TIMESTAMP, 
 	PRIMARY KEY (id)
 );
 

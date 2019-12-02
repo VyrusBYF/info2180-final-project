@@ -203,10 +203,6 @@ textarea:focus,select:focus,option:focus, button:focus, input:focus{
 	width: 40%;
 }
 
-#box2 p{
-	width: 42%;
-	margin-left: 30px;
-}
 
 
 /*----------------------------------------------------------------------------------------------------*/
@@ -231,6 +227,27 @@ textarea:focus,select:focus,option:focus, button:focus, input:focus{
 #desc {
 	height: 100px;
 }
+
+#box2 option{
+	color:black;
+	font-weight: bold;
+}
+
+#box2 select{
+	color:grey;
+}
+
+#box2 p{
+	margin-left: 30px;
+}
+
+#issueDesc li{
+	width: 42%;
+	list-style: 
+}
+
+
+
 
 /*----------------------------------------------------------------------------------------------------*/
 
