@@ -8,8 +8,6 @@ function Login(){
 	var email = document.getElementById("Email").value;
 	var password = document.getElementById("Password").value;
 
-	console.log(email,password);
-
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState === xhttp.DONE) {
 				if (xhttp.status === 200) {
@@ -24,31 +22,69 @@ function Login(){
 		xhttp.send();
 }
 
-function addUser() {
+function Logout(){
 
-	var fname = document.getElementById("Firstname").value;
-	var lname = document.getElementById("Lastname").value;
-	var password = document.getElementById("Password").value;
-	var email = document.getElementById("Email").value;
-
-	var httpRequest = new XMLHttpRequest();
+	var request = "logout";
+	
+	var xhttp = new XMLHttpRequest();
 	var url = "bugme.php";
 
-	httpRequest.onreadystatechange = function (){
-		//console.log("I work")
-		if (httpRequest.readyState === XMLHttpRequest.DONE) {
-		 	if (httpRequest.status === 200) {
-		 		var response = httpRequest.responseText;
-	 			document.getElementById("box2").innerHTML=response;
-
-		 	} else {
-		 		alert('There was a problem with the request.');
-		 	}
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState === xhttp.DONE) {
+				if (xhttp.status === 200) {
+					var response = xhttp.responseText;
+					document.getElementById("container").innerHTML=response;
+				} else {
+					alert('There was a problem with the request.');
+				}
+		} 
 		}
-	};
-	console.log(user);
-	httpRequest.open('POST', url);
-	httpRequest.send(user);		
+		xhttp.open("GET", url+"?request="+request,true);
+		xhttp.send();
+}
+
+function Home(x){
+
+	var request = "home";
+	
+	var xhttp = new XMLHttpRequest();
+	var url = "bugme.php";
+
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState === xhttp.DONE) {
+				if (xhttp.status === 200) {
+					var response = xhttp.responseText;
+					document.getElementById("container").innerHTML=response;
+				} else {
+					alert('There was a problem with the request.');
+				}
+		} 
+		}
+		xhttp.open("GET", url+"?request="+request+"&user="+x,true);
+		xhttp.send();
+}
+
+
+
+function newUser(){
+
+	var request = "newUser";
+	
+	var xhttp = new XMLHttpRequest();
+	var url = "bugme.php";
+
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState === xhttp.DONE) {
+				if (xhttp.status === 200) {
+					var response = xhttp.responseText;
+					document.getElementById("container").innerHTML=response;
+				} else {
+					alert('There was a problem with the request.');
+				}
+		} 
+		}
+		xhttp.open("GET", url+"?request="+request,true);
+		xhttp.send();
 }
 
 function newIssue(x){
@@ -58,8 +94,6 @@ function newIssue(x){
 	
 	var xhttp = new XMLHttpRequest();
 	var url = "bugme.php";
-
-	console.log();
 
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState === xhttp.DONE) {
@@ -83,8 +117,6 @@ function Details(x){
 	
 	var xhttp = new XMLHttpRequest();
 	var url = "bugme.php";
-
-	console.log();
 
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState === xhttp.DONE) {
@@ -115,8 +147,6 @@ function submitIssue(x){
 	var xhttp = new XMLHttpRequest();
 	var url = "bugme.php";
 
-	console.log();
-
 	xhttp.onreadystatechange = function() {
 		if (xhttp.readyState === xhttp.DONE) {
 				if (xhttp.status === 200) {
@@ -128,6 +158,33 @@ function submitIssue(x){
 		} 
 		}
 		xhttp.open("GET", url+"?request="+request+"&title="+title+"&desc="+desc+"&ass="+ass+"&type="+typ+"&priority="+priority+"&user="+x,true);
+		xhttp.send();
+}
+
+function createUser(x){
+	//alert("I work");
+
+	var request = "createUser";
+	
+	var fname = document.getElementById("Firstname").value;
+	var lname = document.getElementById("Lastname").value;
+	var password = document.getElementById("Password").value;
+	var email = document.getElementById("Email").value;
+
+	var xhttp = new XMLHttpRequest();
+	var url = "bugme.php";
+
+	xhttp.onreadystatechange = function() {
+		if (xhttp.readyState === xhttp.DONE) {
+				if (xhttp.status === 200) {
+					var response = xhttp.responseText;
+					document.getElementById("container").innerHTML=response;
+				} else {
+					alert('There was a problem with the request.');
+				}
+		} 
+		}
+		xhttp.open("GET", url+"?request="+request+"&fname="+fname+"&lname="+lname+"&password="+password+"&email="+email,true);
 		xhttp.send();
 }
 

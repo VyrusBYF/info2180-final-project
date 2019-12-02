@@ -9,7 +9,8 @@ CREATE TABLE Users(
 	lastname varchar (25),
 	password varchar (35),
 	email varchar(50),
-	date_joined TIMESTAMP,
+	date_joined DATETIME NOT NULL
+                DEFAULT CURRENT_TIMESTAMP,
 	PRIMARY KEY (id)
 );
 

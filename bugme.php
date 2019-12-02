@@ -23,7 +23,7 @@ if(!empty($_REQUEST["request"])){
 		Login();
 	}
 	elseif ($request == 'logout') {
-		logout();
+		Logout();
 	}
 	elseif ($request == 'newIssue') {
 		newIssue();
@@ -34,26 +34,21 @@ if(!empty($_REQUEST["request"])){
 	elseif ($request == 'viewIssue') {
 		viewIssue();
 	}
+	elseif ($request == 'home') {
+		homePage($_REQUEST['user']);
+	}
+	elseif ($request == 'newUser') {
+		newUser();
+	}
+	elseif ($request == 'createUser') {
+		createUser();
+	}
 	elseif ($request == 'details') {
 		Details();
 	}
 	elseif ($request == 'update') {
 		update();
-	}
-
-	elseif (isset($_SESSION['id']) && isset($_SESSION['email'])) {
-		if ($request == 'adduserform' || $request == 'adduser') {
-			if ($_SESSION['id']==1 && ($_SESSION['email']=='admin@bugme.com')) {
-				if ($request == 'adduserform'){adduserform();}
-				elseif ($request == 'adduser') {adduser();}
-				else{echo "Error";}
-				
-			}
-		}
-		
-		
-	}
-	
+	}	
 	else{
 		echo 'wrong';
 	}
@@ -79,10 +74,10 @@ function homePage($x){
 		</div>
 		<div id= "box1">
 				<ul id = "icons">
-					<li><i class="fas fa-home"></i><a href="#home" data-target="home">Home</a></li>
-					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user">Add User</a></li>
-					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue">New Issue</a></li>
-					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout">Logout</a></li>
+					<li><i class="fas fa-home"></i><a href="#home" data-target="home" onclick="Home()">Home</a></li>
+					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user" onclick="newUser()">Add User</a></li>
+					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue" onclick="newIssue()">New Issue</a></li>
+					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout" onclick="Logout()">Logout</a></li>
 				</ul>
 		</div>
 		<div id="box2"> 
@@ -136,10 +131,10 @@ function newIssue(){
 		</div>
 		<div id= "box1">
 				<ul id = "icons">
-					<li><i class="fas fa-home"></i><a href="#home" data-target="home">Home</a></li>
-					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user">Add User</a></li>
-					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue">New Issue</a></li>
-					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout">Logout</a></li>
+					<li><i class="fas fa-home"></i><a href="#home" data-target="home" onclick="Home()">Home</a></li>
+					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user" onclick="newUser()">Add User</a></li>
+					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue" onclick="newIssue()">New Issue</a></li>
+					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout" onclick="Logout()">Logout</a></li>
 				</ul>
 		</div>
 		<div id="box2"> 
@@ -169,6 +164,83 @@ function newIssue(){
 			<button type= "button" id="submitBtn" class="button" onclick="submitIssue(<?php echo $user ?>)">Submit</button> 
 		</div>
 	</div> <?php
+
+}
+
+function newUser(){ ?>
+	<div id="grid" class = "grid">
+			<div class = "banner" id= "banner">
+				<ul>
+					<li><i class="icon ion-md-bug" style="color:white; font-size: 24px;"></i> BugMe Issue Tracker</li>
+				</ul>
+			</div>
+			<div id= "box1">
+				<ul id = "icons">
+					<li><i class="fas fa-home"></i><a href="#home" data-target="home" onclick="Home()">Home</a></li>
+					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user" onclick="newUser()">Add User</a></li>
+					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue" onclick="newIssue()">New Issue</a></li>
+					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout" onclick="Logout()">Logout</a></li>
+				</ul>
+			</div>
+			<div id="box2"> 
+				<h1>New User</h1>
+				<ul>
+					<li>Firstname<br><input class = "input" type="text" id="Firstname" name="Firstname"></li>
+					<li>Lastname<br><input class = "input" type="text" id="Lastname"></li>
+					<li>Password<br><input class = "input" type="Password" id="Password"></li>
+					<li>Email<br><input class = "input" type="Email" id="Email"></li>
+				</ul>
+				<button type= "button" id="submitBtn" class="button" onclick="createUser()">Submit</button>
+			</div>
+		</div> <?php
+
+}
+function createUser(){
+	$host = getenv('IP');
+	$username = 'root';
+	$password = 'naruto';
+	$dbname = 'bugme';
+
+	$conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+
+	$fname = $_REQUEST['fname'];
+	$lname = $_REQUEST['lname'];
+	$pwd = $_REQUEST['password'];
+	$email = $_REQUEST['email'];
+
+	$stmt = $conn->prepare("INSERT INTO Users VALUES('','$fname','$lname','$pwd','$email', NOW())");
+	$stmt->execute();
+
+	$stmt = $conn->prepare("SELECT DISTINCT * FROM Users");
+	$stmt->execute();
+	$results = $stmt->fetchAll(PDO::FETCH_ASSOC); ?>
+
+	<div id="grid" class = "grid">
+			<div class = "banner" id= "banner">
+				<ul>
+					<li><i class="icon ion-md-bug" style="color:white; font-size: 24px;"></i> BugMe Issue Tracker</li>
+				</ul>
+			</div>
+			<div id= "box1">
+				<ul id = "icons">
+					<li><i class="fas fa-home"></i><a href="#home" data-target="home" onclick="Home()">Home</a></li>
+					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user" onclick="newUser()">Add User</a></li>
+					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue" onclick="newIssue()">New Issue</a></li>
+					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout" onclick="Logout()">Logout</a></li>
+				</ul>
+			</div>
+			<div id="box2"> 
+				<h1>New User</h1>
+				<p style="color:blue;margin-left: 28px;">User Has Been Created!</p>
+				<ul>
+					<li>Firstname<br><input class = "input" type="text" id="Firstname" name="Firstname"></li>
+					<li>Lastname<br><input class = "input" type="text" id="Lastname"></li>
+					<li>Password<br><input class = "input" type="Password" id="Password"></li>
+					<li>Email<br><input class = "input" type="Email" id="Email"></li>
+				</ul>
+				<button type= "button" id="submitBtn" class="button" onclick="createUser()">Submit</button>
+			</div>
+		</div> <?php
 
 }
 
@@ -210,11 +282,10 @@ function submitIssue(){
 		</div>
 		<div id= "box1">
 				<ul id = "icons">
-					<li><i class="fas fa-home"></i><a href="#home" data-target="home">Home</a></li>
-					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user">Add User</a></li>
-					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue">New Issue</a></li>
-					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="l
-						ogout">Logout</a></li>
+					<li><i class="fas fa-home"></i><a href="#home" data-target="home" onclick="Home()">Home</a></li>
+					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user" onclick="newUser()">Add User</a></li>
+					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue" onclick="newIssue()">New Issue</a></li>
+					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout" onclick="Logout()">Logout</a></li>
 				</ul>
 		</div>
 		<div id="box2"> 
@@ -271,10 +342,10 @@ function Details(){
 		</div>
 		<div id= "box1">
 				<ul id = "icons">
-					<li><i class="fas fa-home"></i><a href="#home" data-target="home">Home</a></li>
-					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user">Add User</a></li>
-					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue">New Issue</a></li>
-					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout">Logout</a></li>
+					<li><i class="fas fa-home"></i><a href="#home" data-target="home" onclick="Home()">Home</a></li>
+					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user" onclick="newUser()">Add User</a></li>
+					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue" onclick="newIssue()">New Issue</a></li>
+					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout" onclick="Logout()">Logout</a></li>
 				</ul>
 		</div>
 		<div id="box2"> 
@@ -295,7 +366,7 @@ function Details(){
 }
 
 
-function Login () {
+function Login() {
 	$host = getenv('IP');
 	$username = 'root';
 	$password = 'naruto';
@@ -332,6 +403,25 @@ function Login () {
 		homePage($results[0]['id']);
 	}
 
-} ?>
+}   
+
+function Logout(){ 
+	if (session_status() == PHP_SESSION_NONE) {
+    	session_start();
+	}
+	session_unset();
+	session_destroy(); ?>
+
+	<div>
+		<div id="box2">
+			<h1>Login</h1>
+			<ul>
+				<li>Email<br><input class = "input" type="Email" id="Email" value ="admin@bugme.com"></li>
+				<li>Password<br><input class = "input" type="Password" id="Password" value="password123"></li>
+			</ul>
+			<button type= "button" id="submitBtn" class="button" onclick= "Login()">Submit</button>
+		</div>
+	</div> <?php
+}  ?>
 
 
