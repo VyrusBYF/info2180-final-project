@@ -1,0 +1,250 @@
+.grid{
+	display: grid;
+	width: 2100px;
+  	height: 1000px;
+  	grid-template: 10% 92% / 16% 60%;
+  	
+}
+
+
+
+/*------------------------------------------ Banner --------------------------------------------------*/
+
+.banner{
+	color: white;
+	margin-left: 25px;
+	background-color: black;
+	grid-column: span 2;
+	vertical-align: middle;
+	padding: 3px;
+	/*See the box*/ 
+  	/*border: solid black 1px;*/
+}
+
+#banner i{
+	margin-right: 12px;
+}
+
+#banner li{
+	margin-left: 12px;
+	font-size: 20px;
+}
+
+#banner ul {
+  list-style-type: none;
+  padding: 10px;
+  overflow: hidden;
+  font-size: 12px;
+  color: white;
+  width: 100%;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+
+/*------------------------------------------- Box 1 --------------------------------------------------*/
+
+#box1{
+	background-color: #eae9e9;
+	grid-row-start: 2;
+	margin-left: 25px;
+
+	/*See the box*/ 
+  	/*border: solid black 1px;*/
+}
+
+
+#box1 ul {
+  list-style-type: none;
+  font-size: 12px;
+  color: white;
+  margin-left: 25px;
+}
+#icons {
+	padding-top: 8px;
+}
+
+#box1 li{
+	color: black;
+	text-align: left;
+	margin-left: -30px;
+}
+
+#box1 li a {
+  display: inline-block;
+  color: black;
+  text-align: left;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: "Calibri";
+  width: 40%;
+  margin-left: 8px;
+  padding: 2px;
+
+}
+
+/*#box1 li button{
+	border: none;
+	display: inline-block;
+	color: black;
+	text-align: left;
+	text-decoration: none;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "Calibri";
+	width: 40%;
+	margin-left: 8px;
+	padding: 2px;
+	background-color: #eae9e9;
+}*/
+
+
+#box1 li button:hover:not(.active) {
+  background-color: #8c7ae6;
+  color:white;
+  border-radius: 6px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+
+/*------------------------------------------- Box 2 --------------------------------------------------*/
+
+#box2 {
+	grid-row-start: 2;
+	grid-column-start: 2;
+	 
+
+	/*See the box*/ 
+  	/*border: solid black 1px;*/
+}
+
+#box2 h1{
+	font-family: "Calibri";
+	font-size: 48px;
+	margin-left: 25px;
+}
+
+#box2 ul{
+	list-style-type: none;
+	margin-left: -22px;
+}
+
+#box2 li{
+	font-family: "Calibri";
+	font-size: 20px;
+	font-weight: bold;
+	padding: 12px;
+
+}
+
+
+
+/*----------------------------------------------------------------------------------------------------*/
+
+.button{
+	font-size: 20px;
+	margin-left: 22px;
+	border-radius: 8px;
+	border: none;
+	width: 20%;
+	padding: 6px;
+	background-color: #575fcf;
+	color: white;
+	font-family: "Calibri";
+}
+
+.input{
+	border: solid black 1px;
+	background-color: #f6f6f6;
+	border-radius: 5px;
+	width: 60%;
+	padding: 10px;
+}
+
+#submitBtn:hover:not(.active){
+	background-color: black;
+	color:white;
+	border-radius: 8px;
+}
+textarea:focus,select:focus,option:focus, button:focus, input:focus{
+    outline: none;
+}
+/*------------------------------------------- Table --------------------------------------------------*/
+
+
+.table{
+	width: 98%;
+	overflow: hidden;
+	border-spacing: 0px;
+	margin-left: 22px;
+}
+
+.row{
+	font-family: "Calibri";
+	font-size: 17px;
+	color: black;
+	line-height: 1.4;
+}
+
+.head{
+	text-align: left;
+	font-family: "Calibri";
+	font-weight: bold;
+	font-size: 18px;
+	color: black;
+	line-height: 1.4;
+	background-color: #eae9e9;
+	border-bottom: solid white 5px;
+}
+
+#box2 td:nth-child(1){
+	width: 40%;
+}
+
+#box2 p{
+	width: 42%;
+	margin-left: 30px;
+}
+
+
+/*----------------------------------------------------------------------------------------------------*/
+
+/*------------------------------------------- Issue --------------------------------------------------*/
+
+.dropDownMenu{
+	border: solid black 1px;
+	background-color: #f6f6f6;
+	border-radius: 5px;
+	width: 60%;
+	padding: 10px;
+}
+
+#issues td:nth-child(1):hover:not(.active) {
+  background-color: #8c7ae6;
+  color:white;
+  border-radius: 6px;
+}
+
+
+#desc {
+	height: 100px;
+}
+
+/*----------------------------------------------------------------------------------------------------*/
+
+
+
+/*li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+} */
+
+/*
+li a:hover:not(.active) {
+  background-color: #111;
+}*/
