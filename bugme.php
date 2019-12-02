@@ -122,12 +122,10 @@ function newIssue(){
 
 	$conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
 
-	$stmt = $conn->prepare("SELECT DISTINCT * FROM Issues");
+	$stmt = $conn->prepare("SELECT DISTINCT * FROM Users");
 	$stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-	print_r($results);
 	$user = $_REQUEST['user']; ?>
 
 	<div id="grid" class = "grid">
@@ -152,13 +150,13 @@ function newIssue(){
 				<li>Assigned To<br><select class = "dropDownMenu" type="text" id="assign">
 					<option value="" disabled selected hidden>Marcia Brady</option>
 					<?php foreach ($results as $row): ?>
-						<option><?= $row['firstname'] . $row['lastname']; ?></option>
+						<option><?= $row['firstname'] . " " . $row['lastname']; ?></option>
 					<?php endforeach; ?>
 				</select></li>
 				<li>Type<br><select class = "dropDownMenu" id="typ">
 					<option value="" disabled selected hidden>Bug</option>
 					<option value="Bug">Bug</option>
-					<option value="Propasal">Propasal</option>
+					<option value="Proposal">Proposal</option>
 					<option value="Task">Task</option>
 				</select></li>
 				<li>Priority<br><select class = "dropDownMenu" id="priority">
@@ -235,7 +233,7 @@ function submitIssue(){
 				<li>Type<br><select class = "dropDownMenu" id="typ">
 					<option value="" disabled selected hidden>Bug</option>
 					<option value="Bug">Bug</option>
-					<option value="Propasal">Propasal</option>
+					<option value="Proposal">Proposal</option>
 					<option value="Task">Task</option>
 				</select></li>
 				<li>Priority<br><select class = "dropDownMenu" id="priority">
