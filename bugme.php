@@ -1,4 +1,4 @@
-<?php error_reporting(E_ERROR | E_WARNING | E_PARSE); 
+<?php //error_reporting(E_ERROR | E_WARNING | E_PARSE); 
 $host = getenv('IP');
 $username = 'root';
 $password = 'naruto';
@@ -42,6 +42,9 @@ if(!empty($_REQUEST["request"])){
 	}
 	elseif ($request == 'createUser') {
 		createUser();
+	}
+	elseif ($request == 'emptyIssue') {
+		emptyIssue();
 	}
 	elseif ($request == 'details') {
 		Details();
@@ -181,7 +184,7 @@ function Filter($x,$y){
 					</thead>
 					<?php foreach ($results as $row): ?>
 						<tr id= "issues" class="row">
-							<td><a onclick="Details('<?php echo $row['id']?>')"><?= '#' . $row['id'] . $row['title']; ?></a></td>
+							<td><a  style="padding-right: 260px"onclick="Details('<?php echo $row['id']?>')"><?= '#' . $row['id'] . " " . $row['title']; ?></a></td>
 							<td><?= $row['type']; ?></td>
 							<td><?= $row['status']; ?></td>
 							<td><?= $row['assigned_to'];?></td>
@@ -234,7 +237,7 @@ function Filter($x,$y){
 					</thead>
 					<?php foreach ($results as $row): ?>
 						<tr id= "issues" class="row">
-							<td><a onclick="Details('<?php echo $row['id']?>')"><?= '#' . $row['id'] . $row['title']; ?></a></td>
+							<td><a  style="padding-right: 260px"onclick="Details('<?php echo $row['id']?>')"><?= '#' . $row['id'] . " " . $row['title']; ?></a></td>
 							<td><?= $row['type']; ?></td>
 							<td><?= $row['status']; ?></td>
 							<td><?= $row['assigned_to'];?></td>
@@ -286,7 +289,7 @@ function Filter($x,$y){
 					</thead>
 					<?php foreach ($results as $row): ?>
 						<tr id= "issues" class="row">
-							<td><a onclick="Details('<?php echo $row['id']?>')"><?= '#' . $row['id'] . $row['title']; ?></a></td>
+							<td><a  style="padding-right: 260px"onclick="Details('<?php echo $row['id']?>')"><?= '#' . $row['id'] . " " . $row['title']; ?></a></td>
 							<td><?= $row['type']; ?></td>
 							<td><?= $row['status']; ?></td>
 							<td><?= $row['assigned_to'];?></td>
@@ -333,7 +336,7 @@ function newIssue(){
 		<div id="box2"> 
 			<h1>Create Issue</h1>
 			<ul>
-				<li>Title<br><input class = "input" type="text" id="title" required></li>
+				<li>Title<br><input class = "input" type="text" id="title" required/></li>
 				<li>Description<br><textarea class = "input" type="text" id="desc"></textarea></li>
 				<li>Assigned To<br><select class = "dropDownMenu" type="text" id="assign">
 					<option value="" disabled selected hidden>Marcia Brady</option>
@@ -354,7 +357,65 @@ function newIssue(){
 					<option value="Critical">Critical</option>
 				</select></li>
 			</ul>
-			<button type= "button" id="submitBtn" class="button" onclick="submitIssue(<?php echo $user ?>)">Submit</button> 
+			<button type= "Submit" id="submitBtn" class="button" onclick="submitIssue(<?php echo $user ?>)">Submit</button>
+		</div>
+	</div> <?php
+
+}
+function emptyIssue(){ 
+	$host = getenv('IP');
+	$username = 'root';
+	$password = 'naruto';
+	$dbname = 'bugme';
+
+	$conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+
+	$stmt = $conn->prepare("SELECT DISTINCT * FROM Users");
+	$stmt->execute();
+	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+	$user = $_REQUEST['user']; ?>
+
+	<div id="grid" class = "grid">
+		<div class = "banner" id= "banner">
+			<ul>
+				<li><i class="icon ion-md-bug" style="color:white; font-size: 24px;"></i> BugMe Issue Tracker</li>
+			</ul>
+		</div>
+		<div id= "box1">
+				<ul id = "icons">
+					<li><i class="fas fa-home"></i><a href="#home" data-target="home" onclick="Home()">Home</a></li>
+					<li><i class="icon ion-md-person-add"></i><a href="#user" data-target="user" onclick="newUser()">Add User</a></li>
+					<li><i class="fas fa-plus-circle"></i><a href="#issue" data-target="issue" onclick="newIssue()">New Issue</a></li>
+					<li><i class="fas fa-power-off"></i><a href ="#Logout"data-target="logout" onclick="Logout()">Logout</a></li>
+				</ul>
+		</div>
+		<div id="box2"> 
+			<h1>Create Issue</h1>
+			<p style="color:red;margin-left: 28px;">(Description can be the only empty field!)</p>
+			<ul>
+				<li>Title<br><input class = "input" type="text" id="title" required/></li>
+				<li>Description<br><textarea class = "input" type="text" id="desc"></textarea></li>
+				<li>Assigned To<br><select class = "dropDownMenu" type="text" id="assign">
+					<option value="" disabled selected hidden>Marcia Brady</option>
+					<?php foreach ($results as $row): ?>
+						<option><?= $row['firstname'] . " " . $row['lastname']; ?></option>
+					<?php endforeach; ?>
+				</select></li>
+				<li>Type<br><select class = "dropDownMenu" id="typ">
+					<option value="" disabled selected hidden>Bug</option>
+					<option value="Bug">Bug</option>
+					<option value="Proposal">Proposal</option>
+					<option value="Task">Task</option>
+				</select></li>
+				<li>Priority<br><select class = "dropDownMenu" id="priority">
+					<option value="" disabled selected hidden>Major</option>
+					<option value="Minor">Minor</option>
+					<option value="Major">Major</option>
+					<option value="Critical">Critical</option>
+				</select></li>
+			</ul>
+			<button type= "Submit" id="submitBtn" class="button" onclick="submitIssue(<?php echo $user ?>)">Submit</button>
 		</div>
 	</div> <?php
 
@@ -453,11 +514,15 @@ function submitIssue(){
 
 	$user = $_REQUEST['user'];
 
+	echo $user;
+
 	$stmt = $conn->prepare("SELECT firstname, lastname FROM Users WHERE id = '$user' ");
 	$stmt->execute();
 	$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+	print_r($results);
 	$user = $results[0]['firstname'] . " " .$results[0]['lastname'];
+	echo $user;
 
 
 	$stmt = $conn->prepare("INSERT INTO Issues VALUES('','$title' , '$desc' , '$typ', '$priority','OPEN','$ass','$user', NOW(), NOW())");
@@ -484,7 +549,7 @@ function submitIssue(){
 		<div id="box2"> 
 			<h1>Create Issue</h1>
 			<p style="color:blue;margin-left: 28px;">Your Issue Has Been Logged!</p>
-
+			<form>
 			<ul>
 				<li>Title<br><input class = "input" type="text" id="title" required=""></li>
 				<li>Description<br><textarea class = "input" type="text" id="desc"></textarea></li>
@@ -508,6 +573,8 @@ function submitIssue(){
 				</select></li>
 			</ul>
 			<button type= "button" id="submitBtn" class="button" onclick="submitIssue()">Submit</button> 
+			</form>
+			
 		</div>
 	</div> <?php
 } 

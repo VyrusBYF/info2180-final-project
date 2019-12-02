@@ -135,13 +135,19 @@ function Details(x){
 function submitIssue(x){
 	//alert("I work");
 
-	var request = "submitIssue";
-	
 	var title = document.getElementById("title").value;
 	var desc = document.getElementById("desc").value;
 	var ass = document.getElementById("assign").value;
 	var typ = document.getElementById("typ").value;
 	var priority = document.getElementById("priority").value;
+
+
+	if (title=='' || ass == '' || typ == '' || priority == ''){
+		var request = "emptyIssue";
+	}else{
+		var request = "submitIssue";
+	}
+	
 
 
 	var xhttp = new XMLHttpRequest();
